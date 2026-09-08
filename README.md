@@ -7,7 +7,7 @@
 
 > La tienda de juegos más moderna de internet... donde ningún juego existe. 🎮
 
-**SteamDownloader2026** es una página parodia estilo Steam para Blogger, con diseño oscuro moderno,
+**SteamDownloader2026** es una página parodia estilo Steam, con diseño oscuro moderno,
 animaciones y el juego más esperado de la historia: **Half-Life 3** (spoilers: no se puede descargar,
 como en la vida real).
 
@@ -48,10 +48,7 @@ sube la copia de seguridad que descargaste.
 
 | Archivo | Descripción |
 |---|---|
-| `steamdownloader2026.html` | Versión para pegar en una página o gadget HTML de Blogger |
-| `steamdownloader2026-plantilla.xml` | Tema completo de Blogger listo para subir |
-| `steamdownloader2026-plantilla.txt` | El mismo tema en texto plano por si quieres editarlo |
-
+| `steamdownloader2026.html` | Versión para pegar en una página o gadget HTML |
 ## ⚠️ Disclaimer
 
 Sitio **100% parodia**. No afiliado a Valve ni a Steam. Ningún juego de esta página existe
