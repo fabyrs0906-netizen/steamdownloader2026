@@ -1,0 +1,563 @@
+<!-- ============================================================
+  STEAMDOWNLOADER2026 — Página parodia para Blogger
+  Cómo usarla:
+  1. En Blogger ve a Páginas > Nueva página
+  2. Ponle título (ej. "SteamDownloader2026")
+  3. Cambia el editor a "Vista HTML" (icono del lápiz > Vista HTML)
+  4. Pega TODO este código y dale a Publicar
+  También funciona en Diseño > Añadir gadget > HTML/JavaScript
+============================================================ -->
+<div id="sd26">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@400;600;800&display=swap');
+
+#sd26, #sd26 * { box-sizing: border-box; margin: 0; padding: 0; }
+#sd26 {
+  --bg:#171a21; --bg2:#1b2838; --panel:#2a475e; --panel2:#22394e;
+  --txt:#c7d5e0; --txt2:#8f98a0; --accent:#66c0f4; --accent2:#417a9b;
+  --orange:#ff7a00; --green:#a4d007; --red:#e74c3c;
+  background: linear-gradient(180deg,#1b2838 0%,#171a21 100%);
+  color: var(--txt);
+  font-family:'Chakra Petch','Segoe UI',Arial,sans-serif;
+  border-radius: 14px;
+  overflow: hidden;
+  line-height: 1.5;
+  text-align: left;
+}
+#sd26 img { max-width:100%; }
+#sd26 button { font-family: inherit; cursor: pointer; }
+
+/* ---------- HEADER ---------- */
+.sd26-header {
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:16px 22px;
+  background: rgba(23,26,33,.92);
+  border-bottom:1px solid rgba(102,192,244,.18);
+  position: sticky; top:0; z-index:50;
+  backdrop-filter: blur(8px);
+}
+.sd26-logo { display:flex; align-items:center; gap:10px; user-select:none; cursor:pointer; }
+.sd26-logo-icon {
+  width:42px;height:42px;border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #7ec9f5, #417a9b 70%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px; font-weight:800; color:#0e141b;
+  box-shadow:0 0 18px rgba(102,192,244,.5);
+}
+.sd26-logo-txt { font-weight:700; font-size:19px; letter-spacing:1px; color:#fff; }
+.sd26-logo-txt span { color:var(--accent); }
+.sd26-logo-txt em { color:var(--orange); font-style:normal; }
+.sd26-nav { display:flex; gap:16px; margin-left:10px; flex-wrap:wrap; }
+.sd26-nav a {
+  color:var(--txt2); text-decoration:none; font-size:13px; font-weight:600;
+  text-transform:uppercase; letter-spacing:1px; cursor:pointer; transition:color .2s;
+}
+.sd26-nav a:hover { color:#fff; }
+.sd26-header-right { margin-left:auto; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.sd26-search {
+  background:#10141a; border:1px solid #316282; color:var(--txt);
+  padding:8px 12px; border-radius:8px; font-size:13px; width:170px; outline:none;
+}
+.sd26-search:focus { border-color:var(--accent); box-shadow:0 0 10px rgba(102,192,244,.35); }
+.sd26-cart {
+  position:relative; background:#10141a; border:1px solid #316282;
+  border-radius:8px; padding:8px 12px; color:var(--txt); font-size:16px;
+}
+.sd26-cart-badge {
+  position:absolute; top:-7px; right:-7px; background:var(--orange);
+  color:#fff; font-size:11px; font-weight:700; border-radius:50%;
+  width:20px;height:20px; display:flex;align-items:center;justify-content:center;
+}
+
+/* ---------- TICKER ---------- */
+.sd26-ticker {
+  background:#0e1217; border-bottom:1px solid rgba(102,192,244,.15);
+  overflow:hidden; white-space:nowrap; padding:7px 0;
+}
+.sd26-ticker-inner {
+  display:inline-block; padding-left:100%;
+  animation: sd26scroll 38s linear infinite;
+  font-size:12.5px; color:var(--txt2); letter-spacing:.4px;
+}
+.sd26-ticker-inner b { color:var(--accent); }
+@keyframes sd26scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-100%)} }
+
+/* ---------- HERO ---------- */
+.sd26-hero {
+  position:relative; padding:46px 26px 40px; text-align:center;
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(255,122,0,.16), transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(102,192,244,.12), transparent 55%),
+    #12161d;
+  overflow:hidden;
+}
+.sd26-hero-lambda {
+  font-size:86px; font-weight:800; color:var(--orange);
+  text-shadow:0 0 30px rgba(255,122,0,.75), 0 0 80px rgba(255,122,0,.4);
+  animation: sd26pulse 2.6s ease-in-out infinite;
+  line-height:1;
+}
+@keyframes sd26pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.08);opacity:.85} }
+.sd26-hero h1 { font-size:44px; letter-spacing:3px; color:#fff; margin:6px 0 2px; }
+.sd26-hero h1 span { color:var(--orange); }
+.sd26-hero-sub { color:var(--txt2); font-size:15px; max-width:620px; margin:10px auto 22px; }
+.sd26-hero-sub b { color:var(--txt); }
+.sd26-badges { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:22px; }
+.sd26-pill {
+  font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:4px 12px; border-radius:999px; border:1px solid rgba(102,192,244,.4); color:var(--accent);
+}
+.sd26-pill.hot { border-color:rgba(255,122,0,.5); color:var(--orange); }
+.sd26-hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.sd26-btn {
+  border:none; border-radius:8px; font-weight:700; letter-spacing:1px;
+  padding:14px 30px; font-size:15px; text-transform:uppercase;
+  transition: transform .15s, box-shadow .15s;
+}
+.sd26-btn:hover { transform:translateY(-2px); }
+.sd26-btn-primary {
+  background:linear-gradient(90deg,#ff8a2a,#ff5f00); color:#fff;
+  box-shadow:0 6px 22px rgba(255,122,0,.45);
+}
+.sd26-btn-primary:hover { box-shadow:0 10px 28px rgba(255,122,0,.6); }
+.sd26-btn-ghost { background:transparent; color:var(--accent); border:1px solid var(--accent2); }
+.sd26-btn-ghost:hover { background:rgba(102,192,244,.08); }
+.sd26-price-hero { margin-top:18px; font-size:14px; color:var(--txt2); }
+.sd26-price-hero s { color:#6a7278; margin-right:8px; }
+.sd26-price-hero b { color:var(--green); font-size:20px; }
+.sd26-off { background:var(--green); color:#10141a; font-weight:800; padding:2px 8px; border-radius:6px; margin-left:8px; font-size:13px; }
+
+/* ---------- WAITING COUNTER ---------- */
+.sd26-wait {
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px;
+  padding:18px 20px; background:#0e1217;
+  border-top:1px solid rgba(255,122,0,.25); border-bottom:1px solid rgba(255,122,0,.25);
+}
+.sd26-wait-label { font-size:12px; text-transform:uppercase; letter-spacing:2px; color:var(--txt2); }
+.sd26-wait-num {
+  font-family:'Courier New',monospace; font-size:22px; font-weight:700; color:var(--orange);
+  text-shadow:0 0 12px rgba(255,122,0,.5);
+}
+.sd26-wait-live { font-size:11px; color:var(--green); letter-spacing:1px; animation: sd26blink 1.2s steps(2) infinite; }
+@keyframes sd26blink { 50%{opacity:.25} }
+
+/* ---------- SECTION TITLES ---------- */
+.sd26-section { padding:30px 24px 10px; }
+.sd26-section h2 { font-size:22px; color:#fff; letter-spacing:2px; text-transform:uppercase; }
+.sd26-section h2::after {
+  content:""; display:block; width:60px; height:3px; margin-top:6px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+}
+
+/* ---------- GRID ---------- */
+.sd26-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(185px,1fr));
+  gap:18px; padding:20px 24px 34px;
+}
+.sd26-card {
+  background:linear-gradient(180deg,var(--panel2),#1c2f42);
+  border:1px solid rgba(102,192,244,.14); border-radius:12px; overflow:hidden;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  display:flex; flex-direction:column;
+  animation: sd26fade .5s ease both;
+}
+@keyframes sd26fade { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none} }
+.sd26-card:hover { transform:translateY(-6px); border-color:rgba(102,192,244,.45); box-shadow:0 14px 30px rgba(0,0,0,.5); }
+.sd26-cover {
+  height:118px; display:flex; align-items:center; justify-content:center;
+  font-size:52px; font-weight:800; position:relative; color:rgba(255,255,255,.92);
+  text-shadow:0 4px 18px rgba(0,0,0,.5);
+}
+.sd26-tag {
+  position:absolute; top:8px; left:8px; font-size:9.5px; font-weight:800; letter-spacing:1px;
+  background:rgba(14,18,23,.85); color:var(--accent); padding:3px 8px; border-radius:5px; text-transform:uppercase;
+}
+.sd26-tag.never { color:var(--orange); }
+.sd26-body { padding:12px 13px 14px; display:flex; flex-direction:column; gap:7px; flex:1; }
+.sd26-title { font-size:15.5px; font-weight:700; color:#fff; letter-spacing:.5px; }
+.sd26-desc { font-size:12px; color:var(--txt2); min-height:34px; }
+.sd26-meta { display:flex; align-items:center; gap:7px; font-size:12px; }
+.sd26-meta s { color:#6a7278; }
+.sd26-meta b { color:var(--green); }
+.sd26-off2 { background:var(--green); color:#10141a; font-weight:800; padding:1px 6px; border-radius:5px; font-size:11px; }
+.sd26-stars { color:#ffc107; font-size:12px; letter-spacing:1px; }
+.sd26-card-btns { display:flex; gap:8px; margin-top:auto; }
+.sd26-dl {
+  flex:1; border:none; border-radius:7px; padding:9px 0; font-size:12.5px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase; color:#fff;
+  background:linear-gradient(90deg,#5ba4d4,#417a9b);
+  transition: filter .15s, transform .15s;
+}
+.sd26-dl:hover { filter:brightness(1.18); transform:translateY(-1px); }
+.sd26-add {
+  width:38px; border-radius:7px; border:1px solid var(--accent2); background:transparent;
+  color:var(--accent); font-size:17px; font-weight:700;
+}
+.sd26-add:hover { background:rgba(102,192,244,.12); }
+
+/* ---------- REVIEWS ---------- */
+.sd26-reviews { padding:6px 24px 34px; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
+.sd26-review {
+  background:#12161d; border:1px solid rgba(102,192,244,.14); border-left:3px solid var(--orange);
+  border-radius:10px; padding:14px 16px;
+}
+.sd26-review p { font-size:13px; color:var(--txt); margin:7px 0 9px; font-style:italic; }
+.sd26-review span { font-size:11.5px; color:var(--txt2); letter-spacing:.5px; }
+
+/* ---------- FOOTER ---------- */
+.sd26-footer {
+  background:#0e1217; border-top:1px solid rgba(102,192,244,.15);
+  padding:22px 24px; text-align:center; font-size:12px; color:var(--txt2);
+}
+.sd26-footer b { color:var(--accent); }
+.sd26-stats { display:flex; justify-content:center; gap:26px; flex-wrap:wrap; margin-bottom:12px; font-size:12.5px; }
+.sd26-stats b { color:var(--orange); font-family:'Courier New',monospace; }
+
+/* ---------- MODAL ---------- */
+.sd26-overlay {
+  position:fixed; inset:0; background:rgba(5,8,12,.78); z-index:999999;
+  display:none; align-items:center; justify-content:center; padding:18px;
+  backdrop-filter: blur(4px);
+}
+.sd26-overlay.on { display:flex; }
+.sd26-modal {
+  width:100%; max-width:460px; background:linear-gradient(180deg,#1e2c3d,#151d29);
+  border:1px solid rgba(102,192,244,.3); border-radius:14px; padding:24px;
+  box-shadow:0 24px 70px rgba(0,0,0,.7); animation: sd26pop .25s ease;
+}
+@keyframes sd26pop { from{transform:scale(.92);opacity:0} to{transform:scale(1);opacity:1} }
+.sd26-modal h3 { color:#fff; font-size:19px; letter-spacing:1px; margin-bottom:4px; }
+.sd26-modal-sub { font-size:12.5px; color:var(--txt2); margin-bottom:16px; }
+.sd26-barwrap { background:#0b0f14; border:1px solid #316282; border-radius:8px; height:20px; overflow:hidden; }
+.sd26-bar {
+  height:100%; width:0%;
+  background:linear-gradient(90deg,#66c0f4,#a4d007);
+  transition: width .18s ease; box-shadow:0 0 14px rgba(102,192,244,.6);
+}
+.sd26-dl-info { display:flex; justify-content:space-between; font-size:12px; color:var(--txt2); margin-top:8px; font-family:'Courier New',monospace; }
+.sd26-error {
+  display:none; margin-top:16px; background:rgba(231,76,60,.12);
+  border:1px solid rgba(231,76,60,.55); border-radius:9px; padding:13px 14px;
+}
+.sd26-error b { color:var(--red); display:block; font-size:13px; letter-spacing:1px; margin-bottom:4px; }
+.sd26-error p { font-size:13px; color:var(--txt); }
+.sd26-error code { display:block; margin-top:7px; font-size:11px; color:var(--txt2); font-family:'Courier New',monospace; }
+.sd26-modal-btns { display:flex; gap:10px; margin-top:18px; }
+.sd26-modal-btns .sd26-btn { flex:1; padding:11px 0; font-size:13px; }
+
+/* ---------- TOAST ---------- */
+.sd26-toast {
+  position:fixed; bottom:22px; right:22px; z-index:9999999;
+  background:#12161d; border:1px solid var(--accent2); border-left:4px solid var(--orange);
+  color:var(--txt); font-size:13px; padding:12px 18px; border-radius:10px;
+  box-shadow:0 12px 32px rgba(0,0,0,.6); display:none; max-width:300px;
+  animation: sd26pop .25s ease;
+}
+.sd26-toast.on { display:block; }
+
+@media (max-width:640px){
+  .sd26-hero h1 { font-size:30px; }
+  .sd26-hero-lambda { font-size:64px; }
+  .sd26-search { width:120px; }
+  .sd26-nav { display:none; }
+}
+</style>
+
+<!-- HEADER -->
+<header class="sd26-header">
+  <div class="sd26-logo" id="sd26-logo">
+    <div class="sd26-logo-icon">⬇</div>
+    <div class="sd26-logo-txt">STEAM<span>DOWNLOADER</span><em>2026</em></div>
+  </div>
+  <nav class="sd26-nav">
+    <a data-sd26nav>Tienda</a>
+    <a data-sd26nav>Biblioteca</a>
+    <a data-sd26nav>Comunidad</a>
+    <a data-sd26nav>Soporte</a>
+  </nav>
+  <div class="sd26-header-right">
+    <input class="sd26-search" id="sd26-search" type="text" placeholder="🔍 Buscar juegos...">
+    <button class="sd26-cart" id="sd26-cart">🛒<span class="sd26-cart-badge" id="sd26-cart-badge">0</span></button>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="sd26-ticker">
+  <div class="sd26-ticker-inner">
+    <b>ÚLTIMA HORA:</b> Valve confirma que el número 3 "sigue en investigación" &nbsp;•&nbsp;
+    <b>EXCLUSIVA:</b> Gabe Newell fue visto contando con los dedos: llegó al 2 y se fue de vacaciones &nbsp;•&nbsp;
+    Half-Life 3 rompe récord: 19 años como "el juego más esperado" sin existir &nbsp;•&nbsp;
+    SteamDownloader2026 alcanza <b>0 descargas reales</b>. Celebración masiva en las oficinas &nbsp;•&nbsp;
+    Filtrado: el código fuente de HL3 cabe en 0 bytes &nbsp;•&nbsp;
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="sd26-hero">
+  <div class="sd26-hero-lambda">λ</div>
+  <h1>HALF-LIFE <span>3</span></h1>
+  <div class="sd26-badges">
+    <span class="sd26-pill hot">Exclusivo mundial</span>
+    <span class="sd26-pill">Confirmado por un primo de Gabe</span>
+    <span class="sd26-pill hot">Fecha de salida: NUNCA™</span>
+  </div>
+  <p class="sd26-hero-sub">
+    El juego que llevas esperando <b>casi dos décadas</b> por fin está aquí... bueno, no.
+    Pero el botón de descarga <b>sí es real</b> (el juego no). Descárgalo ahora y únete a los
+    millones de jugadores que también están esperando.
+  </p>
+  <div class="sd26-hero-btns">
+    <button class="sd26-btn sd26-btn-primary" onclick="SD26.open('hl3')">⬇ Descargar ahora</button>
+    <button class="sd26-btn sd26-btn-ghost" id="sd26-trailer">Ver tráiler (no hay)</button>
+  </div>
+  <div class="sd26-price-hero">
+    <s>$999.99</s><b>GRATIS</b><span class="sd26-off">-100%</span>
+    &nbsp;·&nbsp; ⭐⭐⭐⭐⭐ (3 reseñas... obvio)
+  </div>
+</section>
+
+<!-- WAITING COUNTER -->
+<div class="sd26-wait">
+  <span class="sd26-wait-label">⏳ Tiempo oficial esperando Half-Life 3</span>
+  <span class="sd26-wait-num" id="sd26-wait">calculando...</span>
+  <span class="sd26-wait-live">● EN VIVO</span>
+</div>
+
+<!-- GAMES -->
+<section class="sd26-section"><h2>🔥 Juegos destacados</h2></section>
+<div class="sd26-grid" id="sd26-grid"></div>
+
+<!-- REVIEWS -->
+<section class="sd26-section"><h2>💬 Reseñas de la comunidad</h2></section>
+<div class="sd26-reviews">
+  <div class="sd26-review">
+    <span class="sd26-stars">★★★★★</span>
+    <p>"Lo llevo esperando desde la secundaria. Ya tengo canas, dos hijos y una hipoteca. Cuando salga, lo juego con mis nietos. 10/10."</p>
+    <span>— GordonFan_1998 · 18,402 hrs jugadas (pensando en el juego)</span>
+  </div>
+  <div class="sd26-review">
+    <span class="sd26-stars">★★★★★</span>
+    <p>"La mejor experiencia que nunca he tenido. Los gráficos imaginarios se ven increíbles en mi PC imaginaria."</p>
+    <span>— xX_Freeman_Xx · Producto no recibido</span>
+  </div>
+  <div class="sd26-review">
+    <span class="sd26-stars">★☆☆☆☆</span>
+    <p>"Le pongo 1 estrella porque no existe. Le quitaría la otra, pero tampoco existe."</p>
+    <span>— BarneyCalhounReal · 0.0 hrs jugadas</span>
+  </div>
+  <div class="sd26-review">
+    <span class="sd26-stars">★★★★★</span>
+    <p>"Lo pre-compré en 2007. La mejor inversión de mi vida, dicen que para 2078 ya sale."</p>
+    <span>— Vortigaunt_CEO · Pre-compra verificada ✔</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="sd26-footer">
+  <div class="sd26-stats">
+    <span>👥 Usuarios esperando HL3: <b id="sd26-users">14,392,004</b></span>
+    <span>⬇ Descargas reales hoy: <b>0</b> (récord mundial)</span>
+    <span>🖥️ Servidores: <b>1 y medio</b></span>
+  </div>
+  <p><b>SteamDownloader2026</b> — Sitio 100% parodia. No afiliado a Valve ni a Steam.</p>
+  <p>Ningún juego de esta página existe (especialmente Half-Life 3). No se descargó ningún archivo durante la creación de este sitio.</p>
+  <p>© 2026–∞ SteamDownloader2026. Todos los derechos reservados. Menos el número 3.</p>
+</footer>
+
+<!-- MODAL -->
+<div class="sd26-overlay" id="sd26-overlay">
+  <div class="sd26-modal">
+    <h3 id="sd26-m-title">Descargando...</h3>
+    <div class="sd26-modal-sub" id="sd26-m-sub">Conectando con los servidores de Valve...</div>
+    <div class="sd26-barwrap"><div class="sd26-bar" id="sd26-bar"></div></div>
+    <div class="sd26-dl-info">
+      <span id="sd26-m-pct">0%</span>
+      <span id="sd26-m-speed">0 MB/s</span>
+    </div>
+    <div class="sd26-error" id="sd26-error">
+      <b>⚠ ERROR DE DESCARGA</b>
+      <p id="sd26-m-error"></p>
+      <code id="sd26-m-code"></code>
+    </div>
+    <div class="sd26-modal-btns">
+      <button class="sd26-btn sd26-btn-ghost" id="sd26-m-retry">Reintentar (es inútil)</button>
+      <button class="sd26-btn sd26-btn-primary" id="sd26-m-close">Aceptar mi destino</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="sd26-toast" id="sd26-toast"></div>
+
+<script>
+(function(){
+  var GAMES = [
+    {id:'hl3',  g:'λ',  cov:'linear-gradient(135deg,#3d2200,#b35400 60%,#ff7a00)', tag:'EL MÁS ESPERADO', never:true,
+     t:'Half-Life 3', d:'El regreso de Gordon Freeman. Lo juras que lo viste en un sueño.', old:'$999.99', price:'GRATIS', off:'-100%', stars:'★★★★★'},
+    {id:'p3',   g:'◎',  cov:'linear-gradient(135deg,#0b3d5c,#1e88c7 55%,#ff8a2a)', tag:'Pre-compra',
+     t:'Portal 3', d:'Ahora con 3 portales. (Mentira, sigue sin existir.)', old:'$59.99', price:'$3.33', off:'-94%', stars:'★★★★★'},
+    {id:'l4d3', g:'☣',  cov:'linear-gradient(135deg,#12300f,#3f7a2a 60%,#8bc34a)', tag:'Próximamente™', never:true,
+     t:'Left 4 Dead 3', d:'4 supervivientes, 3 entregas... espera, algo no cuadra.', old:'$39.99', price:'$0.03', off:'-99%', stars:'★★★★☆'},
+    {id:'tf3',  g:'🎩', cov:'linear-gradient(135deg,#4a0e0e,#a83226 60%,#e2574c)', tag:'Sombreros incluidos',
+     t:'Team Fortress 3', d:'El simulador de sombreros definitivo sube de nivel.', old:'$29.99', price:'3 pagos de $3', off:'-3%', stars:'★★★★☆'},
+    {id:'cs3',  g:'⊕',  cov:'linear-gradient(135deg,#0c2e33,#16707c 60%,#3fd0d4)', tag:'Kick garantizado',
+     t:'Counter-Strike 3', d:'Global Offensive 2: Episode 1: The Prequel: Remastered.', old:'$24.99', price:'GRATIS', off:'-100%', stars:'★★★★★'},
+    {id:'r2',   g:'✦',  cov:'linear-gradient(135deg,#2a0f45,#6d28a8 60%,#a56ce8)', tag:'Según Gabe, real',
+     t:'Ricochet 2', d:'El sucesor espiritual que nadie pidió y Gabe lleva años anunciando.', old:'$9.99', price:'$1.99', off:'-80%', stars:'★★★☆☆'},
+    {id:'d3',   g:'⚔',  cov:'linear-gradient(135deg,#33070d,#8e1f2c 60%,#d24a57)', tag:'TI 2050',
+     t:'Dota 3', d:'Se anuncia en The International 2050. Apartado gráfico: Source 4.', old:'$0.00', price:'GRATIS', off:'-0%', stars:'★★★★☆'},
+    {id:'sd26', g:'⬇', cov:'linear-gradient(135deg,#152232,#2f5f86 60%,#66c0f4)', tag:'Meta',
+     t:'SteamDownloader 2026: The Game', d:'Juegas a descargar juegos que no existen. 10/10 en realismo.', old:'$20.26', price:'GRATIS', off:'-100%', stars:'★★★★★'}
+  ];
+
+  var ERRORS = {
+    hl3:[
+      'ERROR 404: Half-Life 3 no encontrado. Como siempre.',
+      'El servidor empezó a contar: 1... 2... y se le olvidó lo que seguía.',
+      'Gabe Newell vio tu solicitud de descarga, sonrió y se fue de vacaciones.',
+      'Descarga cancelada: el archivo hl3.exe nunca existió. En el fondo, siempre lo supiste.'
+    ],
+    p3:['ERROR: El portal de descarga se cerró del otro lado. The cake is a lie... y la descarga también.'],
+    l4d3:['ERROR: Los servidores fueron abandonados... 4 dead. Literalmente.'],
+    tf3:['ERROR: Se requiere 1 sombrero para completar la descarga. No tienes sombreros suficientes.'],
+    cs3:['ERROR: El servidor te hizo kick por inactividad. Llevas esperando desde 2012.'],
+    r2:['SORPRESA: Este sí podría existir. Gabe lleva años avisándote de Ricochet 2 y nadie le creyó.'],
+    d3:['ERROR: Descarga en pausa hasta The International 2050. Gracias por tu paciencia.'],
+    sd26:['ERROR RECURSIVO: No puedes descargar SteamDownloader2026 desde SteamDownloader2026. El universo colapsaría.']
+  };
+  var CODES = ['HL3_NO_EXISTE','VALVE_NO_SABE_CONTAR','EPISODE_3_PENDING','GABE_ON_VACATION','SOURCE_3_NOT_FOUND','WAIT_FOREVER'];
+
+  var grid = document.getElementById('sd26-grid');
+  function render(list){
+    grid.innerHTML = '';
+    list.forEach(function(g,i){
+      var c = document.createElement('div');
+      c.className = 'sd26-card';
+      c.style.animationDelay = (i*0.05)+'s';
+      c.innerHTML =
+        '<div class="sd26-cover" style="background:'+g.cov+'">'+
+          '<span class="sd26-tag'+(g.never?' never':'')+'">'+g.tag+'</span>'+g.g+
+        '</div>'+
+        '<div class="sd26-body">'+
+          '<div class="sd26-title">'+g.t+'</div>'+
+          '<div class="sd26-desc">'+g.d+'</div>'+
+          '<div class="sd26-stars">'+g.stars+'</div>'+
+          '<div class="sd26-meta"><s>'+g.old+'</s><b>'+g.price+'</b><span class="sd26-off2">'+g.off+'</span></div>'+
+          '<div class="sd26-card-btns">'+
+            '<button class="sd26-dl" data-dl="'+g.id+'">⬇ Descargar</button>'+
+            '<button class="sd26-add" data-add="'+g.t+'">+</button>'+
+          '</div>'+
+        '</div>';
+      grid.appendChild(c);
+    });
+  }
+  render(GAMES);
+
+  // Buscador
+  document.getElementById('sd26-search').addEventListener('input', function(){
+    var q = this.value.toLowerCase();
+    render(GAMES.filter(function(g){ return g.t.toLowerCase().indexOf(q)>-1; }));
+  });
+
+  // Toast
+  var toast = document.getElementById('sd26-toast'), toastT;
+  function showToast(msg){
+    toast.textContent = msg; toast.classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(function(){ toast.classList.remove('on'); }, 3200);
+  }
+
+  // Carrito
+  var cart = 0, badge = document.getElementById('sd26-cart-badge');
+  function addCart(t){
+    cart++; badge.textContent = cart;
+    showToast('🛒 "'+t+'" añadido. Total del carrito: $0.00 (nada de esto existe).');
+  }
+
+  // Modal de descarga falsa
+  var overlay = document.getElementById('sd26-overlay'),
+      bar = document.getElementById('sd26-bar'),
+      pct = document.getElementById('sd26-m-pct'),
+      spd = document.getElementById('sd26-m-speed'),
+      errBox = document.getElementById('sd26-error'),
+      errTxt = document.getElementById('sd26-m-error'),
+      errCode = document.getElementById('sd26-m-code'),
+      mTitle = document.getElementById('sd26-m-title'),
+      mSub = document.getElementById('sd26-m-sub'),
+      timer = null, current = null;
+
+  function open(id){
+    current = id;
+    var g = GAMES.filter(function(x){return x.id===id;})[0] || GAMES[0];
+    mTitle.textContent = '⬇ Descargando ' + g.t;
+    overlay.classList.add('on');
+    startDL();
+  }
+  function startDL(){
+    clearInterval(timer);
+    var p = 0;
+    bar.style.width = '0%'; pct.textContent = '0%';
+    errBox.style.display = 'none';
+    mSub.textContent = 'Conectando con los servidores de Valve...';
+    timer = setInterval(function(){
+      p += Math.random()*9 + 3;
+      if (p >= 99){
+        p = 99; clearInterval(timer);
+        mSub.textContent = 'Descargando... quedan 3 segundos';
+        setTimeout(fail, 2600);
+      }
+      bar.style.width = p+'%';
+      pct.textContent = Math.floor(p)+'%';
+      spd.textContent = (Math.random()*900+100).toFixed(1)+' MB/s';
+    }, 160);
+  }
+  function fail(){
+    var list = ERRORS[current] || ERRORS.hl3;
+    errTxt.textContent = list[Math.floor(Math.random()*list.length)];
+    errCode.textContent = 'Código: '+CODES[Math.floor(Math.random()*CODES.length)]+' · Progreso perdido: 99%';
+    errBox.style.display = 'block';
+    mSub.textContent = 'La descarga ha fallado. Qué sorpresa.';
+  }
+  document.getElementById('sd26-m-close').onclick = function(){ overlay.classList.remove('on'); clearInterval(timer); };
+  document.getElementById('sd26-m-retry').onclick = startDL;
+  overlay.onclick = function(e){ if(e.target===overlay){ overlay.classList.remove('on'); clearInterval(timer); } };
+
+  // Delegación de botones
+  grid.addEventListener('click', function(e){
+    var dl = e.target.getAttribute('data-dl'), add = e.target.getAttribute('data-add');
+    if (dl) open(dl);
+    if (add) addCart(add);
+  });
+
+  // Botones extra del hero / nav / logo
+  document.getElementById('sd26-trailer').onclick = function(){ showToast('🎬 El tráiler tampoco existe. Es una página muy honesta.'); };
+  document.getElementById('sd26-cart').onclick = function(){ showToast('🛒 Tu carrito vale $0.00. Igual que el catálogo. Hermoso.'); };
+  var navs = document.querySelectorAll('[data-sd26nav]');
+  for (var i=0;i<navs.length;i++) navs[i].onclick = function(){ showToast('Esa sección no existe. Como Half-Life 3.'); };
+  var logoClicks = 0;
+  document.getElementById('sd26-logo').onclick = function(){
+    logoClicks++;
+    if (logoClicks === 3){ showToast('👀 Deja de contar hasta 3. Valve no puede y tú tampoco deberías.'); logoClicks = 0; }
+  };
+
+  // Contador de espera de HL3 (desde HL2: Episode Two, 10/oct/2007)
+  var waitEl = document.getElementById('sd26-wait'), t0 = new Date(2007,9,10).getTime();
+  function tickWait(){
+    var s = Math.floor((Date.now()-t0)/1000);
+    var days = Math.floor(s/86400), yrs = Math.floor(days/365.25), rd = Math.floor(days - yrs*365.25);
+    var h = Math.floor(s%86400/3600), m = Math.floor(s%3600/60), ss = s%60;
+    function p2(n){ return (n<10?'0':'')+n; }
+    waitEl.textContent = yrs+' años, '+rd+' días, '+p2(h)+':'+p2(m)+':'+p2(ss);
+  }
+  tickWait(); setInterval(tickWait, 1000);
+
+  // Contador de usuarios esperando
+  var users = 14392004, uEl = document.getElementById('sd26-users');
+  setInterval(function(){
+    users += Math.floor(Math.random()*7);
+    uEl.textContent = users.toLocaleString('es-MX');
+  }, 1800);
+
+  window.SD26 = { open: open };
+})();
+</script>
+</div>
